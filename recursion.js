@@ -131,3 +131,37 @@ function sum2(array) {
 // console.log(sum2([1, 2, 3, 4]))
 // Answer: 10
 
+// Compute the exponent of a number
+
+function getResult(base, exponent) {
+    if (exponent === 0) {
+        return 1;
+    }
+
+    return base * getResult(base, exponent-1)
+}
+
+// console.log(getResult(3, 3))
+// Answer: 27
+
+
+// Check whether a number is even or not
+
+function isEven(num) {
+    if (num < 0) {
+        num = Math.abs(num);
+    }
+
+    if (num === 0) {
+        return true;
+    }
+
+    if (num === 1) {
+        return false;
+    }
+
+    num = num-2;
+    return isEven(num);
+}
+
+console.log(isEven(2))
