@@ -12,8 +12,6 @@ function findFactorialRecursive(number) {
     return number * findFactorialRecursive(number-1);
 }
 
-console.log(findFactorialRecursive(5))
-
 // O(n)
 function findFactorialIterative(number) {
     let answer = 1;
@@ -29,4 +27,58 @@ function findFactorialIterative(number) {
     return answer;
 }
 
-console.log(findFactorialIterative(5))
+
+// Given an index N, return the index value of the Fibonacci sequence
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144...
+// Each number is sum of 2 previous values
+
+//O(n)
+function fibonacciIterative(n) {
+    let arr = [0, 1]
+    
+    for (let i = 2; i < n + 1; i++) {
+        arr.push(arr[i-1] + arr[i-2])
+    }
+
+    return arr[n];
+}
+
+// console.log(fibonacciIterative(3));
+// Answer: 2
+
+// O(2^n)
+function fibonacciRecursive(n) {
+    if (n < 2) {
+        return n;
+    }
+
+    return fibonacciRecursive(n-1) + fibonacciRecursive(n-2)
+}
+
+
+//Implement a function that reverses a string using recursion
+//O(n)
+function reverseString(str) {
+
+    if (str === "") {
+      return "";
+    }
+  
+    return reverseString(str.substr(1)) + str.charAt(0)
+  }
+
+// Find the greatest common divisor (gcd) of two positive numbers
+
+function findGcd(num1, num2) {
+    // Since num2 is the remainder, remainder 0 signifies
+    // that the first common denominator was found
+    // in which case num1 represents that first common denominator
+    if (num2 === 0) {
+        return num1;
+    }
+
+    return findGcd(num2, num1 % num2)
+}
+
+console.log(findGcd(1701, 3768))
+// Answer: 3
