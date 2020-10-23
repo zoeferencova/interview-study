@@ -103,4 +103,31 @@ function intRange(x, y) {
     return arr;
 }
 
-console.log(intRange(2, 9))
+// console.log(intRange(2, 9))
+// Answer: [3, 4, 5, 6, 7, 8]
+
+// Compute the sum of an array of integers
+
+function sum(array) {
+    if (array.length === 1) {
+        return array[0]
+    }
+
+    // Replace first 2 items with sum of first 2 items
+    array.splice(0, 2, array[0]+array[1])
+
+    return sum(array)
+}
+
+function sum2(array) {
+    if (array.length === 1) {
+        return array[0]
+    }
+
+    // Remove last item and add to array with last item missing
+    return array.pop() + sum2(array)
+}
+
+// console.log(sum2([1, 2, 3, 4]))
+// Answer: 10
+
