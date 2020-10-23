@@ -67,6 +67,7 @@ function reverseString(str) {
     return reverseString(str.substr(1)) + str.charAt(0)
   }
 
+
 // Find the greatest common divisor (gcd) of two positive numbers
 
 function findGcd(num1, num2) {
@@ -80,5 +81,26 @@ function findGcd(num1, num2) {
     return findGcd(num2, num1 % num2)
 }
 
-console.log(findGcd(1701, 3768))
+// console.log(findGcd(1701, 3768))
 // Answer: 3
+
+
+// Get the integers in range (x, y)
+
+function intRange(x, y) {
+    // if there is only one more number between x and y
+    // add remaining number into array and return array
+    if (y - x === 2) {
+        return [x + 1];
+    }
+
+    // sets returned array from base case to var
+    // changes max number to one less each time
+    const arr = intRange(x, y - 1);
+
+    // pushes next lowest number to end of array
+    arr.push(y - 1);
+    return arr;
+}
+
+console.log(intRange(2, 9))
