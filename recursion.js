@@ -164,4 +164,3 @@ function isEven(num) {
     return isEven(num);
 }
 
-console.log(isEven(2))
